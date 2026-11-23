@@ -1,0 +1,28 @@
+% CryptoGuard architecture (TikZ). Included from paper.tex as a two-column figure.
+\begin{tikzpicture}[
+  font=\footnotesize,
+  box/.style={draw, rounded corners=2pt, align=center, minimum height=11mm, text width=29mm, execute at begin node={\hyphenpenalty=10000\exhyphenpenalty=10000},
+              inner sep=3pt, fill=white},
+  arr/.style={-{Stealth[length=2mm]}, thick},
+  lab/.style={font=\scriptsize, fill=white, inner sep=1pt}]
+  \node[box, fill=blue!6]  (host)  at (0,0)    {Cloud server\\\scriptsize VM / container};
+  \node[box]               (col)   at (4.1,0)  {Telemetry collector\\\scriptsize CPU, processes, network};
+  \node[box, fill=blue!6]  (model) at (8.2,0)  {Normal-profile model\\\scriptsize CPU-excess + iForest};
+  \node[box]               (det)   at (12.3,0)  {Decision layer\\\scriptsize point + CUSUM, XAI gate};
+  \node[box, fill=orange!12](resp) at (16.4,0) {Graduated responder\\\scriptsize alert / kill / isolate};
+  \node[box]               (ti)    at (4.1,-2) {Threat intelligence\\\scriptsize pool ports, miners, IPs};
+  \node[box]               (xai)   at (8.2,-2) {TreeSHAP explainer\\\scriptsize per-feature reasons};
+  \node[box, fill=orange!12](admin) at (16.4,-2) {Cloud administrator\\\scriptsize alert with reasons};
+
+  \draw[arr] (host) -- node[lab, above=1pt]{metrics} (col);
+  \draw[arr] (col) -- node[lab, above=1pt]{$\mathbf{x}_t$} (model);
+  \draw[arr] (model) -- node[lab, above=1pt]{$s_t$} (det);
+  \draw[arr] (det) -- node[lab, above=1pt]{$c_t$} (resp);
+  \draw[arr] (col) -- (ti);
+  \draw[arr] (model) -- (xai);
+  \draw[arr] (ti.north east) -- node[lab, pos=0.22, sloped, above=1pt]{intel evidence $e_t$} ([xshift=2mm]det.south west);
+  \draw[arr] (xai.north east) -- node[lab, sloped, below=1pt]{compute share $\rho_t$} ([xshift=8mm]det.south);
+  \draw[arr] (resp) -- node[lab, right=1pt]{notify} (admin);
+  \draw[arr] (xai.east) -- node[lab, pos=0.6, below=1pt]{plain-English explanation} (admin.west);
+  \draw[arr] (resp.north) -- ++(0,0.55) -| node[lab, pos=0.25, above=1pt]{terminate process tree / quarantine security group} (host.north);
+\end{tikzpicture}

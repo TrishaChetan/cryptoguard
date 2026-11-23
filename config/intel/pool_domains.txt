@@ -1,0 +1,12 @@
+# Public Monero / crypto mining pools. Resolved to IPs at startup when
+# intel.resolve_domains is true in the config.
+pool.supportxmr.com
+xmr.nanopool.org
+xmr-eu1.nanopool.org
+xmr-us-east1.nanopool.org
+gulf.moneroocean.stream
+pool.hashvault.pro
+xmr.2miners.com
+mine.c3pool.com
+xmrpool.eu
+monerohash.com

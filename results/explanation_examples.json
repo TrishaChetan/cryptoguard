@@ -1,0 +1,130 @@
+{
+  "stealthy": {
+    "minute_into_attack": 16,
+    "confidence": 0.522,
+    "method": "TreeSHAP",
+    "compute_share": 0.798,
+    "summary": "Looks like cryptojacking because the server is using 30 percentage points more CPU than its current traffic and process activity can explain (normally under 5); a single process is using 30% of total CPU (normal top process: ~9%); one process accounts for 70% of all CPU use (normally ~40%).",
+    "reasons": [
+      {
+        "feature": "cpu_excess",
+        "weight": 0.395,
+        "text": "the server is using 30 percentage points more CPU than its current traffic and process activity can explain (normally under 5)"
+      },
+      {
+        "feature": "top_proc_cpu",
+        "weight": 0.161,
+        "text": "a single process is using 30% of total CPU (normal top process: ~9%)"
+      },
+      {
+        "feature": "top_proc_share",
+        "weight": 0.139,
+        "text": "one process accounts for 70% of all CPU use (normally ~40%)"
+      }
+    ],
+    "threat_intel": [],
+    "attributions": {
+      "cpu_percent": 0.6161,
+      "cpu_std": -0.0904,
+      "cpu_sustained": -0.0273,
+      "top_proc_cpu": 1.1093,
+      "top_proc_share": 0.9561,
+      "mem_percent": 0.3062,
+      "num_procs": 0.1611,
+      "new_procs": 0.066,
+      "net_conns": 0.2069,
+      "unique_remote_ips": 0.4024,
+      "bytes_sent_kbps": 0.0846,
+      "bytes_recv_kbps": 0.1646,
+      "hour_sin": 0.0824,
+      "cpu_excess": 2.7152
+    }
+  },
+  "container": {
+    "minute_into_attack": 1,
+    "confidence": 0.5,
+    "method": "TreeSHAP",
+    "compute_share": 0.675,
+    "summary": "Looks like cryptojacking because the server is using 64 percentage points more CPU than its current traffic and process activity can explain (normally under 5); newly spawned processes is 36, higher than normal (1-11); CPU usage is 93%, while this server normally runs at about 28% at 19:00; 3 connection(s) to a mining-pool (Stratum) port.",
+    "reasons": [
+      {
+        "feature": "cpu_excess",
+        "weight": 0.245,
+        "text": "the server is using 64 percentage points more CPU than its current traffic and process activity can explain (normally under 5)"
+      },
+      {
+        "feature": "new_procs",
+        "weight": 0.196,
+        "text": "newly spawned processes is 36, higher than normal (1-11)"
+      },
+      {
+        "feature": "cpu_percent",
+        "weight": 0.16,
+        "text": "CPU usage is 93%, while this server normally runs at about 28% at 19:00"
+      }
+    ],
+    "threat_intel": [
+      "3 connection(s) to a mining-pool (Stratum) port"
+    ],
+    "attributions": {
+      "cpu_percent": 1.6133,
+      "cpu_std": 0.8711,
+      "cpu_sustained": 0.3966,
+      "top_proc_cpu": 1.117,
+      "top_proc_share": 0.0742,
+      "mem_percent": 0.0557,
+      "num_procs": 0.962,
+      "new_procs": 1.9718,
+      "net_conns": 0.065,
+      "unique_remote_ips": 0.1733,
+      "bytes_sent_kbps": -0.0375,
+      "bytes_recv_kbps": 0.0482,
+      "hour_sin": 0.2608,
+      "cpu_excess": 2.4731
+    }
+  },
+  "noisy": {
+    "minute_into_attack": 1,
+    "confidence": 0.75,
+    "method": "TreeSHAP",
+    "compute_share": 0.962,
+    "summary": "Looks like cryptojacking because the server is using 63 percentage points more CPU than its current traffic and process activity can explain (normally under 5); a single process is using 90% of total CPU (normal top process: ~9%); CPU usage is 99%, while this server normally runs at about 34% at 12:00; process name 'xmrig' matches a known miner signature; 1 connection(s) to a mining-pool (Stratum) port.",
+    "reasons": [
+      {
+        "feature": "cpu_excess",
+        "weight": 0.271,
+        "text": "the server is using 63 percentage points more CPU than its current traffic and process activity can explain (normally under 5)"
+      },
+      {
+        "feature": "top_proc_cpu",
+        "weight": 0.242,
+        "text": "a single process is using 90% of total CPU (normal top process: ~9%)"
+      },
+      {
+        "feature": "cpu_percent",
+        "weight": 0.178,
+        "text": "CPU usage is 99%, while this server normally runs at about 34% at 12:00"
+      }
+    ],
+    "threat_intel": [
+      "process name 'xmrig' matches a known miner signature",
+      "1 connection(s) to a mining-pool (Stratum) port"
+    ],
+    "attributions": {
+      "cpu_percent": 1.6926,
+      "cpu_std": 0.8697,
+      "cpu_sustained": 0.4179,
+      "top_proc_cpu": 2.3028,
+      "top_proc_share": 1.275,
+      "mem_percent": -0.0163,
+      "num_procs": -0.0038,
+      "new_procs": 0.139,
+      "net_conns": 0.1083,
+      "unique_remote_ips": -0.0108,
+      "bytes_sent_kbps": -0.0415,
+      "bytes_recv_kbps": 0.1182,
+      "hour_sin": -0.0457,
+      "cpu_excess": 2.5797
+    }
+  }
+}

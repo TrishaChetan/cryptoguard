@@ -1,0 +1,4 @@
+# IPs / CIDR ranges of mining pools or mining proxies.
+# Populate from your threat-intel feed. The entry below is the RFC 5737
+# documentation range and is only here as a format example.
+203.0.113.0/24

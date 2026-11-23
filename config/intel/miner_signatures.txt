@@ -1,0 +1,24 @@
+# Substrings matched (case-insensitive) against process name + command line.
+# Common open-source miners
+xmrig
+xmr-stak
+minerd
+cpuminer
+cgminer
+bfgminer
+ethminer
+nbminer
+t-rex
+lolminer
+phoenixminer
+srbminer
+# Names used by known cryptojacking malware families
+kdevtmpfsi
+kinsing
+sysrv
+# Command-line indicators
+stratum+tcp
+stratum+ssl
+stratum2+tcp
+--donate-level
+randomx

@@ -1,0 +1,29 @@
+{
+  "window_seconds": 5.0,
+  "baseline_windows": 120,
+  "baseline_cpu_mean": 0.254,
+  "scenarios": [
+    {
+      "start": 1795447565.6026702,
+      "pid": 1685,
+      "detect": 0.8041043281555176,
+      "kill": 0.8041043281555176,
+      "explanation": "Looks like cryptojacking because the server is using 7 percentage points more CPU than its current traffic and process activity can explain (normally under 1); CPU variability is 14.0 (normal 0.2-0.6); CPU usage is 8%, while this server normally runs at about 0% at 15:00; process 'python3' (pid 1685) connected to 127.0.0.1:3333 (mining-pool port); process 'python3' (pid 1685) name/command line matches miner signature 'xmrig'.",
+      "confidence": 0.75,
+      "false_alerts_before": 0,
+      "name": "noisy",
+      "miner_still_running_at_end": false
+    },
+    {
+      "start": 1795447833.0748262,
+      "pid": 1716,
+      "detect": 10.772032737731934,
+      "kill": 91.54896950721741,
+      "explanation": "Looks like cryptojacking because the server is using 25 percentage points more CPU than its current traffic and process activity can explain (normally under 1); CPU usage is 26%, while this server normally runs at about 0% at 15:00; a single process is using 25% of total CPU (normal top process: ~0%).",
+      "confidence": 0.5219,
+      "false_alerts_before": 0,
+      "name": "stealthy",
+      "miner_still_running_at_end": false
+    }
+  ]
+}

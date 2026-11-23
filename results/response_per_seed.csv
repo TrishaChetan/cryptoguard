@@ -1,0 +1,11 @@
+containment_rate,mean_ttc_min,wrong_kills_per_day,wrong_isolations_per_day,seed,variant
+1.0,15.9,0.0,0.0,0,full
+1.0,53.2,0.0,0.0,0,no_maintenance_window
+1.0,8.333333333333334,0.0,0.0,1,full
+1.0,57.333333333333336,0.0,0.0,1,no_maintenance_window
+1.0,11.6,0.0,0.0,2,full
+1.0,44.1,0.0,0.0,2,no_maintenance_window
+1.0,11.2,0.0,0.0,3,full
+0.8,36.375,0.0,0.0,3,no_maintenance_window
+1.0,15.6,0.0,0.0,4,full
+1.0,77.8,0.0,0.0,4,no_maintenance_window

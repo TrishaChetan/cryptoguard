@@ -1,0 +1,16 @@
+# TCP ports commonly used by Stratum mining pools.
+# Note: many pools also offer TLS on 443; that case is caught by the
+# behavioural model and the IP blocklist instead of the port list.
+3333
+4444
+5555
+6666
+7777
+9999
+10128
+10343
+14433
+14444
+20580
+45560
+45700

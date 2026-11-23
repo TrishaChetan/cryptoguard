@@ -1,0 +1,5 @@
+,containment_rate,containment_rate,mean_ttc_min,mean_ttc_min,wrong_kills_per_day,wrong_kills_per_day,wrong_isolations_per_day,wrong_isolations_per_day
+,mean,std,mean,std,mean,std,mean,std
+variant,,,,,,,,
+full,1.0,0.0,12.526666666666667,3.2026378017017296,0.0,0.0,0.0,0.0
+no_maintenance_window,0.96,0.08944271909999156,53.76166666666667,15.704758213852118,0.0,0.0,0.0,0.0

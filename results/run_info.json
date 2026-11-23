@@ -1,0 +1,149 @@
+{
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "events_first_seed": [
+    {
+      "kind": "stealthy",
+      "start": 259,
+      "duration": 253,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "ci_build",
+      "start": 588,
+      "duration": 21,
+      "malicious": false,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "stealthy",
+      "start": 676,
+      "duration": 353,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "container",
+      "start": 1146,
+      "duration": 55,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": true,
+      "blocklisted": false
+    },
+    {
+      "kind": "traffic_surge",
+      "start": 1265,
+      "duration": 134,
+      "malicious": false,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "stealthy",
+      "start": 1791,
+      "duration": 200,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "noisy",
+      "start": 2164,
+      "duration": 111,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": true,
+      "blocklisted": false
+    },
+    {
+      "kind": "noisy",
+      "start": 2338,
+      "duration": 98,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": true,
+      "blocklisted": false
+    },
+    {
+      "kind": "noisy",
+      "start": 2603,
+      "duration": 79,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "container",
+      "start": 2740,
+      "duration": 75,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "ci_build",
+      "start": 3258,
+      "duration": 25,
+      "malicious": false,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "container",
+      "start": 3314,
+      "duration": 87,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "stealthy",
+      "start": 3554,
+      "duration": 263,
+      "malicious": true,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "traffic_surge",
+      "start": 3886,
+      "duration": 94,
+      "malicious": false,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    },
+    {
+      "kind": "ci_build",
+      "start": 4120,
+      "duration": 28,
+      "malicious": false,
+      "renamed": false,
+      "pool_port": false,
+      "blocklisted": false
+    }
+  ],
+  "train_windows": 10080,
+  "test_windows": 4320,
+  "threshold": 0.5975427859432964
+}

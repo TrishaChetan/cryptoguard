@@ -1,0 +1,69 @@
+# CryptoGuard configuration. Copy this file and pass it with --config.
+
+collector:
+  window_seconds: 10        # length of one observation window
+  sample_seconds: 1         # CPU sampling interval inside a window
+  sustained_windows: 10     # windows used for the "cpu_sustained" feature
+
+model:
+  algorithm: isolation_forest   # isolation_forest | ocsvm
+  n_estimators: 300
+  max_samples: 2048
+  threshold_quantile: 0.995     # point-anomaly threshold = this quantile of normal scores
+  cpu_model: ridge              # learns the CPU the workload should need (ridge | hgb)
+  cusum_k: 1.0                  # CUSUM allowance for low-and-slow miners
+  compute_gate: 0.75            # XAI gate: min. share of SHAP attribution on compute features
+  random_state: 42
+
+detector:
+  persistence_k: 3          # behavioural alarm needs k anomalous windows ...
+  persistence_n: 5          # ... out of the last n
+  maintenance_windows: []   # registered heavy scheduled jobs, e.g.
+  #  - {days: [6], start: "04:00", end: "05:15"}   # 0 = Monday ... 6 = Sunday
+  intel_weights:            # evidence added on top of the behavioural score
+    pool_port_conns: 0.50
+    miner_name_hits: 0.50
+    blocklist_ip_conns: 0.45
+
+response:
+  dry_run: true             # SAFETY: log what would be done, do nothing
+  alert_threshold: 0.50     # confidence >= this  -> alert with explanation
+  kill_threshold: 0.75      # confidence >= this  -> terminate culprit process
+  isolate_threshold: 0.90   # confidence >= this  -> isolate the server
+  isolation_mode: none      # none | iptables | aws
+  admin_cidr: 10.0.0.0/8    # kept reachable when isolating with iptables
+  aws:
+    region: ap-south-1
+    instance_id: ""         # empty = read from instance metadata
+    quarantine_security_group: ""   # SG with no inbound/outbound rules
+  allowlist_processes:      # never killed automatically
+    - systemd
+    - sshd
+    - init
+    - containerd
+    - dockerd
+    - kubelet
+    - nginx
+    - gunicorn
+    - uwsgi
+    - postgres
+    - mysqld
+    - pg_dump
+    - tar
+    - gzip
+    - java
+  notify:
+    log_file: logs/alerts.jsonl
+    webhook_url: ""         # Slack / Teams / Discord incoming webhook
+    email:
+      enabled: false
+      smtp_host: smtp.example.com
+      smtp_port: 587
+      username: ""
+      password_env: CRYPTOGUARD_SMTP_PASSWORD
+      from_addr: cryptoguard@example.com
+      to_addrs: []
+
+intel:
+  directory: config/intel
+  resolve_domains: false    # resolve pool domains to IPs at startup (needs DNS)
